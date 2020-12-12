@@ -119,11 +119,17 @@ class _SelectionDialogState extends State<SelectionDialog> {
                       _buildEmptySearchWidget(context)
                     else
                       ...filteredElements.map(
-                        (e) => SimpleDialogOption(
-                          child: _buildOption(e),
-                          onPressed: () {
-                            _selectItem(e);
-                          },
+                        (e) => Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SimpleDialogOption(
+                              child: _buildOption(e),
+                              onPressed: () {
+                                _selectItem(e);
+                              },
+                            ),
+                            const Divider(),
+                          ],
                         ),
                       ),
                   ],
